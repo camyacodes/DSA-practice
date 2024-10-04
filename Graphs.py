@@ -27,13 +27,9 @@ class Graph:
             return False
     def remove_vertex(self, v1):
         if v1 in self.adj_list:
-           for vertex in self.adj_list:
-               if v1 in self.adj_list[vertex]:
-                   self.adj_list[vertex].remove(v1)
-        else:
-            return False
-        del self.adj_list[v1]
-        return True
+            for vertex in self.adj_list[v1]:
+                self.adj_list[vertex].remove(v1)
+            del self.adj_list[v1]
         
 my_graph = Graph()
 my_graph.add_vertex(12)
@@ -41,7 +37,7 @@ my_graph.add_vertex(13)
 my_graph.add_vertex('B')
 my_graph.add_edge("B", 12)
 my_graph.add_edge("B", 13)
-my_graph.remove_vertex(13)
+# my_graph.remove_vertex(13)
 
 
 my_graph.print_graph()
